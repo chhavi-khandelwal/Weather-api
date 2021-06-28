@@ -35,6 +35,7 @@ export interface Store {
   addWeatherData: (weather: Weather) => void;
   fetchCurrentWeather: fetchWeather;
   setCurrentWeather: (weather: Weather) => void;
+  setError: (error: string) => void;
 }
 
 export type fetchWeather = (data: {

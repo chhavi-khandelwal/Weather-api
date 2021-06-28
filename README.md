@@ -14,6 +14,7 @@ Weather App fetches weather params from the api and displays data
 - form with city and country fetches data and displays in the grid
 - caches the data in the store for a form search
 - error state when no city/country detail is found
+- shows `unknown` as city/country for no data from api
 
 ## Tech Stack
 
@@ -24,6 +25,21 @@ Weather App fetches weather params from the api and displays data
 - Jest (Test runner)
 - React Testing Library (Testing)
 - jest-fetch-mock (for async fetch mocking behavior)
+
+## Architecture
+
+-src
+
+- api -> fetch call for weather api
+- assets
+  - images -> pngs
+  - styles ->common styled components
+- components -> shared components
+- containers -> main containers
+- services -> heavy computations of response from api before displaying
+- store -> stores/caches data via zustand
+- utils -> utilities for helper fns
+- App.test.tsx -> test file
 
 ## How to run
 
@@ -41,3 +57,4 @@ yarn test
 - missing loading state
 - test case for cached data
 - better usage/display of data from api(currently only 2 being used)
+- handle error state via try catch

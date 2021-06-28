@@ -32,8 +32,9 @@ const store = (set: any) => ({
       weatherData: [...state.weatherData, currentWeather],
     }));
   },
+  setError: (error: string) => set(() => ({ error: error })),
   setCurrentWeather: (weather: Weather) =>
-    set((state: Store) => ({
+    set(() => ({
       currentWeather: weather,
     })),
   currentWeather: {

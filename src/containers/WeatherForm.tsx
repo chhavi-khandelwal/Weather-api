@@ -7,6 +7,8 @@ import Input from 'components/Input/Input';
 function WeatherForm() {
   const setCurrentWeather = useStore((state) => state.setCurrentWeather);
   const weatherData = useStore((state) => state.weatherData);
+  const setError = useStore((state) => state.setError);
+
   const fetchCurrentWeather = useStore<fetchWeather>(
     (state) => state.fetchCurrentWeather
   );
@@ -20,6 +22,7 @@ function WeatherForm() {
         wD.city.toLowerCase() === data.city.toLowerCase() ||
         wD.country.toLowerCase() === data.country.toLowerCase()
     );
+    setError('');
 
     if (filteredWeather) {
       setCurrentWeather(filteredWeather);
