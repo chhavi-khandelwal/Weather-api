@@ -20,7 +20,11 @@ function WeatherDisplay() {
   return (
     <>
       <WeatherForm />
-      {error ? <Styled.Error>{error}</Styled.Error> : <WeatherCard />}
+      {error ? (
+        <Styled.Error data-testid="error">{error}</Styled.Error>
+      ) : (
+        <WeatherCard />
+      )}
     </>
   );
 }

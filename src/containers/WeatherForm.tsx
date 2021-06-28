@@ -38,6 +38,7 @@ function WeatherForm() {
           name="city"
           error={errors?.city?.type ? 'Required' : ''}
           ref={register({ required: true })}
+          id="test-input1"
         />
       </Styled.InputContainer>
       <Styled.InputContainer>
@@ -47,9 +48,12 @@ function WeatherForm() {
           name="country"
           error={errors?.country?.type ? 'Required' : ''}
           ref={register({ required: true })}
+          id="test-input2"
         />
       </Styled.InputContainer>
-      <Styled.Button type="submit">Submit</Styled.Button>
+      <Styled.Button type="submit" data-testid="submit-btn">
+        Submit
+      </Styled.Button>
     </Styled.Form>
   );
 }

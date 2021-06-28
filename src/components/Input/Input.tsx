@@ -8,6 +8,7 @@ export type Props = {
   error?: string;
   placeholder?: string;
   name?: string;
+  id?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 const Input = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
@@ -18,6 +19,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
     changeListener = () => {},
     type,
     name,
+    id,
   } = props;
 
   const onTextChange = (event: { target: HTMLInputElement }) => {
@@ -35,6 +37,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
         name={name}
         ref={ref}
         error={error}
+        data-testid={id}
       />
       {error && <Styled.ErrorContainer>{error}</Styled.ErrorContainer>}
     </Styled.InputContainer>
