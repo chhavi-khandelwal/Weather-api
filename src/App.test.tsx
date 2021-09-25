@@ -68,4 +68,19 @@ describe('Weather', () => {
       expect(errorContainer).toBeInTheDocument();
     });
   });
+
+  test('error case for required fields', async () => {
+    (fetch as any).mockResponseOnce(JSON.stringify({}));
+    render(<App />);
+    const input1 = screen.getByTestId('test-input1');
+    const input2 = screen.getByTestId('test-input2');
+    const submitBtn = screen.getByTestId('submit-btn');
+    fireEvent.click(submitBtn);
+
+    await waitFor(async () => {
+      const errorContainer = screen.getByTestId('error-test-input1');
+      expect(errorContainer).toBeInTheDocument();
+      expect(screen.getAllByText('Required')).toHaveLength(2);
+    });
+  });
 });

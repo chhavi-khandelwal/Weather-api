@@ -39,7 +39,11 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
         error={error}
         data-testid={id}
       />
-      {error && <Styled.ErrorContainer>{error}</Styled.ErrorContainer>}
+      {error && (
+        <Styled.ErrorContainer data-testid={`error-${id}`}>
+          {error}
+        </Styled.ErrorContainer>
+      )}
     </Styled.InputContainer>
   );
 });
